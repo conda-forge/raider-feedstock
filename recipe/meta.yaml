@@ -10,7 +10,9 @@ source:
   sha256: 4e7031564594bc945d1fefd3c5d15d44f87b9c0f56680d748b3d0b648e563028
 
 build:
-  script: {{ PYTHON }} -m pip install . -vv
+  script:
+    - export SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
+    - {{ PYTHON }} -m pip install . -vv
   number: 0
   skip: true  # [py<37 or win]
 
