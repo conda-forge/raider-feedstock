@@ -40,7 +40,7 @@ requirements:
     - ecmwf-api-client
     - h5py
     - herbie-data
-    - isce3 >=0.8.0!=*_3
+    - isce3 ==0.8.0 !=*_3
     - lxml
     - matplotlib-base
     - netcdf4
