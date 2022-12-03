@@ -67,10 +67,10 @@ test:
     - pip
   commands:
     - pip check
-    - generateGACOSVRT.py -h
+    - generateGACOSVRT.py
     - raider.py -h
     - raiderDownloadGNSS.py -h
-    - prepFromAria.py -h
+    # - prepFromAria.py -h
     - raiderStats.py -h
 
 about:
