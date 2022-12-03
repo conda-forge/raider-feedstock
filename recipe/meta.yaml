@@ -61,8 +61,8 @@ requirements:
 test:
   imports:
     - RAiDER
-    - from RAiDER.delay import main
-    - from RAiDER.interpolator import interp_along_axis
+    - RAiDER.delay
+    - RAiDER.interpolator
   requires:
     - pip
   commands:
