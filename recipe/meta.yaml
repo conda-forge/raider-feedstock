@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/dbekaert/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: e536f563977f529dc08bdb93fe5e1bd843a0fea0c2e966c924845230d26bc962
+  sha256: 4e7031564594bc945d1fefd3c5d15d44f87b9c0f56680d748b3d0b648e563028
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
@@ -23,41 +23,53 @@ requirements:
     - python
     - pip
     - pybind11 >=2.5.0
-    - setuptools
+    - setuptools >61.0
+    - setuptools_scm >6.2
+    - wheel
     - numpy
     - cython
 
   run:
     - python
-    - cartopy
     - cdsapi
     - cfgrib
     - dask
     - dem_stitcher >=2.3.0
     - ecmwf-api-client
-    - gdal >=3.5.1
     - h5py
-    - libgdal
+    - herbie-data
+    - isce3 >=0.8.0
+    - lxml
     - matplotlib-base
     - netcdf4
     - {{ pin_compatible('numpy') }}
     - pandas
     - progressbar
-    - pydap >3.2.2|<3.2.2
+    - pydap >3.2.2
     - pyproj >=2.2.0
-    - rasterio
+    - pyyaml
+    - rasterio >=1.3.0
+    - requests
+    - s3fs
     - scipy
     - shapely
+    - tqdm
     - xarray
 
 test:
   imports:
     - RAiDER
+    - from RAiDER.delay import main
+    - from RAiDER.interpolator import interp_along_axis
   requires:
     - pip
   commands:
     - pip check
-    - raiderDelay.py -h
+    - generateGACOSVRT.py -h
+    - raider.py -h
+    - raiderDownloadGNSS.py -h
+    - prepFromAria.py -h
+    - raiderStats.py -h
 
 about:
   home: https://github.com/dbekaert/RAiDER
