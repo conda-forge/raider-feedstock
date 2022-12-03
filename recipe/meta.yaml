@@ -1,5 +1,5 @@
 {% set name = "RAiDER" %}
-{% set version = "0.1.0" %}
+{% set version = "0.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/dbekaert/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 18fb20fd9c250b168459c5258c66d7392cd58c5243831b6f0ece9c90ea3a72e4
+  sha256: e536f563977f529dc08bdb93fe5e1bd843a0fea0c2e966c924845230d26bc962
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
-  skip: True  # [py<37 or win]
+  number: 0
+  skip: true  # [py<37 or win]
 
 requirements:
   build:
@@ -61,7 +61,7 @@ test:
 
 about:
   home: https://github.com/dbekaert/RAiDER
-  summary: 'Raytracing Atmospheric Delay Estimation for RADAR'
+  summary: Raytracing Atmospheric Delay Estimation for RADAR
   description: |
     RAiDER-tools is a package in Python which contains tools to calculate
     tropospheric corrections for Radar using a raytracing implementation.
