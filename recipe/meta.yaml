@@ -70,8 +70,8 @@ test:
     - raider.py -h
     - calcDelays.py -h
     - calcDelaysGUNW.py -h
-    - raiderDownloadGNSS.py -h
-    - downloadGNSS.py -h
+    # - raiderDownloadGNSS.py -h  # https://github.com/dbekaert/RAiDER/issues/453
+    # - downloadGNSS.py -h  # https://github.com/dbekaert/RAiDER/issues/453
     - generateGACOSVRT.py
     - raiderStats.py -h
 
