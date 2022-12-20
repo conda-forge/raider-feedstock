@@ -1,5 +1,5 @@
 {% set name = "RAiDER" %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://github.com/dbekaert/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 4e7031564594bc945d1fefd3c5d15d44f87b9c0f56680d748b3d0b648e563028
+  sha256: d3479849aae3157d5c5a1e7f48696852d415901cf08e2889ce6501dfc6615265
 
 build:
   script:
     - export SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
     - {{ PYTHON }} -m pip install . -vv
   number: 0
-  skip: true  # [py<37 or win]
+  skip: true  # [py<310 or win]
 
 requirements:
   build:
@@ -36,11 +36,11 @@ requirements:
     - cdsapi
     - cfgrib
     - dask
-    - dem_stitcher >=2.3.0
+    - dem_stitcher >=2.3.1
     - ecmwf-api-client
     - h5py
     - herbie-data
-    - isce3 ==0.8.0 =*_2
+    - isce3 >=0.9.0
     - lxml
     - matplotlib-base
     - netcdf4
@@ -67,10 +67,12 @@ test:
     - pip
   commands:
     - pip check
-    - generateGACOSVRT.py
     - raider.py -h
-    - raiderDownloadGNSS.py -h
-    # - prepFromAria.py -h
+    - calcDelays.py -h
+    - calcDelaysGUNW.py -h
+    # - raiderDownloadGNSS.py -h  # https://github.com/dbekaert/RAiDER/issues/453
+    # - downloadGNSS.py -h  # https://github.com/dbekaert/RAiDER/issues/453
+    - generateGACOSVRT.py
     - raiderStats.py -h
 
 about:
