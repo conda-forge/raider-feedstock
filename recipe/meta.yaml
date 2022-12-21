@@ -1,5 +1,5 @@
 {% set name = "RAiDER" %}
-{% set version = "0.3.0" %}
+{% set version = "0.3.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://github.com/dbekaert/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: d3479849aae3157d5c5a1e7f48696852d415901cf08e2889ce6501dfc6615265
+  sha256: 96ccceb5cff1325ec0fb8ace02108d945042e22e4ccc59820f921f5178922911
 
 build:
   script:
     - export SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
     - {{ PYTHON }} -m pip install . -vv
   number: 0
-  skip: true  # [py<310 or win]
+  skip: true  # [py<38 or win]
 
 requirements:
   build:
@@ -70,8 +70,8 @@ test:
     - raider.py -h
     - calcDelays.py -h
     - calcDelaysGUNW.py -h
-    # - raiderDownloadGNSS.py -h  # https://github.com/dbekaert/RAiDER/issues/453
-    # - downloadGNSS.py -h  # https://github.com/dbekaert/RAiDER/issues/453
+    - raiderDownloadGNSS.py -h
+    - downloadGNSS.py -h
     - generateGACOSVRT.py
     - raiderStats.py -h
 
