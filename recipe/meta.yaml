@@ -14,7 +14,7 @@ build:
     - export SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
     - {{ PYTHON }} -m pip install . -vv
   number: 0
-  skip: true  # [py<310 or win]
+  skip: true  # [py<38 or win]
 
 requirements:
   build:
@@ -70,8 +70,8 @@ test:
     - raider.py -h
     - calcDelays.py -h
     - calcDelaysGUNW.py -h
-    # - raiderDownloadGNSS.py -h  # https://github.com/dbekaert/RAiDER/issues/453
-    # - downloadGNSS.py -h  # https://github.com/dbekaert/RAiDER/issues/453
+    - raiderDownloadGNSS.py -h
+    - downloadGNSS.py -h
     - generateGACOSVRT.py
     - raiderStats.py -h
 
