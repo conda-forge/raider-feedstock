@@ -52,8 +52,10 @@ requirements:
     - pyyaml
     - rasterio >=1.3.0
     - requests
+    - rioxarray
     - s3fs
     - scipy
+    - sentineleof
     - shapely
     - tqdm
     - xarray
