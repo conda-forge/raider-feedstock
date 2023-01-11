@@ -1,0 +1,14 @@
+diff --git a/MANIFEST.in b/MANIFEST.in
+new file mode 100644
+index 00000000..f15fc4e4
+--- /dev/null
++++ b/MANIFEST.in
+@@ -0,0 +1,8 @@
++include LICENSE
++include LICENSE2.md
++include README.md
++include CHANGELOG.md
++
++graft tools/RAiDER
++
++global-exclude *.py[cod] __pycache__ *.so
