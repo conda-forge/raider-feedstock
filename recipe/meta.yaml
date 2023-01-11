@@ -13,7 +13,7 @@ build:
   script:
     - export SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
     - {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   skip: true  # [py<38 or win]
 
 requirements:
@@ -27,7 +27,7 @@ requirements:
     - pybind11 >=2.5.0
     - setuptools >61.0
     - setuptools_scm >6.2
-    - wheel
+    - python-build
     - numpy
     - cython
 
