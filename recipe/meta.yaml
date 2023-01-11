@@ -8,6 +8,8 @@ package:
 source:
   url: https://github.com/dbekaert/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 496419a943b3b533dfa7e4a19546531a4712aa39799b7e8cce491aae953283c6
+  patches:
+    - 467.patch  # add MANIFEST.in to include package data; see #467 upstream.
 
 build:
   script:
