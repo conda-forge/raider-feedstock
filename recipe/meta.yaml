@@ -32,7 +32,6 @@ requirements:
     - python-build
     - numpy
     - cython
-
   run:
     - python
     - cdsapi
