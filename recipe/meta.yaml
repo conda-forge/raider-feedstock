@@ -8,12 +8,14 @@ package:
 source:
   url: https://github.com/dbekaert/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 496419a943b3b533dfa7e4a19546531a4712aa39799b7e8cce491aae953283c6
+  patches:
+    - 467.diff  # add MANIFEST.in to include package data; see #467 upstream.
 
 build:
   script:
     - export SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
     - {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   skip: true  # [py<38 or win]
 
 requirements:
@@ -27,10 +29,9 @@ requirements:
     - pybind11 >=2.5.0
     - setuptools >61.0
     - setuptools_scm >6.2
-    - wheel
+    - python-build
     - numpy
     - cython
-
   run:
     - python
     - cdsapi
