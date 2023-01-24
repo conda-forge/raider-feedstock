@@ -8,8 +8,6 @@ package:
 source:
   url: https://github.com/dbekaert/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 360d0a8b0e0a989acb9b98c202d9707136ead6d4cb383b3292c4b92710c897f2
-  patches:
-    - 467.diff  # add MANIFEST.in to include package data; see #467 upstream.
 
 build:
   script:
@@ -34,6 +32,7 @@ requirements:
     - cython
   run:
     - python
+    - boto3
     - cdsapi
     - cfgrib
     - dask
