@@ -1,5 +1,5 @@
 {% set name = "RAiDER" %}
-{% set version = "0.4.0" %}
+{% set version = "0.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,15 +7,13 @@ package:
 
 source:
   url: https://github.com/dbekaert/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 496419a943b3b533dfa7e4a19546531a4712aa39799b7e8cce491aae953283c6
-  patches:
-    - 467.diff  # add MANIFEST.in to include package data; see #467 upstream.
+  sha256: 360d0a8b0e0a989acb9b98c202d9707136ead6d4cb383b3292c4b92710c897f2
 
 build:
   script:
     - export SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
     - {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
   skip: true  # [py<38 or win]
 
 requirements:
@@ -34,6 +32,7 @@ requirements:
     - cython
   run:
     - python
+    - boto3
     - cdsapi
     - cfgrib
     - dask
