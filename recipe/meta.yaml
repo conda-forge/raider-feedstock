@@ -1,5 +1,5 @@
 {% set name = "RAiDER" %}
-{% set version = "0.4.1" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/dbekaert/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 360d0a8b0e0a989acb9b98c202d9707136ead6d4cb383b3292c4b92710c897f2
+  sha256: 49c0e2846dfced765c536357e2899e19e7cd5d519423d499c68147fafd100b50
 
 build:
   script:
