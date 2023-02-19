@@ -1,5 +1,5 @@
-About raider
-============
+About raider-suite
+==================
 
 Home: https://github.com/dbekaert/RAiDER
 
@@ -107,27 +107,28 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-raider-green.svg)](https://anaconda.org/conda-forge/raider) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/raider.svg)](https://anaconda.org/conda-forge/raider) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/raider.svg)](https://anaconda.org/conda-forge/raider) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/raider.svg)](https://anaconda.org/conda-forge/raider) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-raider--base-green.svg)](https://anaconda.org/conda-forge/raider-base) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/raider-base.svg)](https://anaconda.org/conda-forge/raider-base) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/raider-base.svg)](https://anaconda.org/conda-forge/raider-base) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/raider-base.svg)](https://anaconda.org/conda-forge/raider-base) |
 
-Installing raider
-=================
+Installing raider-suite
+=======================
 
-Installing `raider` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `raider-suite` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `raider` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `raider, raider-base` can be installed with `conda`:
 
 ```
-conda install raider
+conda install raider raider-base
 ```
 
 or with `mamba`:
 
 ```
-mamba install raider
+mamba install raider raider-base
 ```
 
 It is possible to list all of the versions of `raider` available on your platform with `conda`:
@@ -197,17 +198,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating raider-feedstock
-=========================
+Updating raider-suite-feedstock
+===============================
 
-If you would like to improve the raider recipe or build a new
+If you would like to improve the raider-suite recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/raider-feedstock are
+Note that all branches in the conda-forge/raider-suite-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.

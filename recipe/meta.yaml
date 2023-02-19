@@ -1,81 +1,95 @@
 {% set name = "RAiDER" %}
-{% set version = "0.4.1" %}
+{% set version = "0.4.2" %}
 
 package:
-  name: {{ name|lower }}
+  # For multiple outputs, I'm mimicking: https://github.com/conda-forge/matplotlib-feedstock/blob/main/recipe/meta.yaml
+  name: raider-suite
   version: {{ version }}
 
 source:
   url: https://github.com/dbekaert/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 360d0a8b0e0a989acb9b98c202d9707136ead6d4cb383b3292c4b92710c897f2
+  sha256: a4da954770a295af2a8bf63499ae30a1277bfa60a182bfdbcdab47cae4d8df4c
 
 build:
-  script:
-    - export SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
-    - {{ PYTHON }} -m pip install . -vv
   number: 0
-  skip: true  # [py<38 or win]
 
-requirements:
-  build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - cmake
-  host:
-    - python
-    - pip
-    - pybind11 >=2.5.0
-    - setuptools >61.0
-    - setuptools_scm >6.2
-    - python-build
-    - numpy
-    - cython
-  run:
-    - python
-    - boto3
-    - cdsapi
-    - cfgrib
-    - dask
-    - dem_stitcher >=2.3.1
-    - ecmwf-api-client
-    - h5py
-    - herbie-data
-    - isce3 >=0.9.0
-    - lxml
-    - matplotlib-base
-    - netcdf4
-    - {{ pin_compatible('numpy') }}
-    - pandas
-    - progressbar
-    - pydap >3.2.2
-    - pyproj >=2.2.0
-    - pyyaml
-    - rasterio >=1.3.0
-    - requests
-    - rioxarray
-    - s3fs
-    - scipy
-    - sentineleof
-    - shapely
-    - tqdm
-    - xarray
+outputs:
+  - name: raider-base
+    script: build_base.sh
+    build:
+      skip: true  # [py<38 or win]
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        - cmake
+      host:
+        - python
+        - pip
+        - pybind11 >=2.5.0
+        - setuptools >61.0
+        - setuptools_scm >6.2
+        - python-build
+        - numpy
+        - cython
+      run:
+        - python
+        - boto3
+        - cdsapi
+        - cfgrib
+        - dask
+        - dem_stitcher >=2.3.1
+        - ecmwf-api-client
+        - h5py
+        - herbie-data
+        - lxml
+        - matplotlib-base
+        - netcdf4
+        - {{ pin_compatible('numpy') }}
+        - pandas
+        - progressbar
+        - pydap >3.2.2
+        - pyproj >=2.2.0
+        - pyyaml
+        - rasterio >=1.3.0
+        - requests
+        - rioxarray
+        - s3fs
+        - scipy
+        - sentineleof
+        - shapely
+        - tqdm
+        - xarray
+    test:
+      imports:
+        - RAiDER
+        - RAiDER.delay
+        - RAiDER.interpolator
+      requires:
+        - pip
+      commands:
+        - pip check
+        - raider.py -h
+        - calcDelays.py -h
+        - calcDelaysGUNW.py -h
+        - raiderDownloadGNSS.py -h
+        - downloadGNSS.py -h
+        - generateGACOSVRT.py
+        - raiderStats.py -h
 
-test:
-  imports:
-    - RAiDER
-    - RAiDER.delay
-    - RAiDER.interpolator
-  requires:
-    - pip
-  commands:
-    - pip check
-    - raider.py -h
-    - calcDelays.py -h
-    - calcDelaysGUNW.py -h
-    - raiderDownloadGNSS.py -h
-    - downloadGNSS.py -h
-    - generateGACOSVRT.py
-    - raiderStats.py -h
+  - name: raider
+    build:
+      skip: true  # [py<38 or win]
+    requirements:
+      host:
+        - python
+      run:
+        - python
+        - isce3 >=0.9.0
+        - {{ pin_subpackage('raider-base', max_pin="x.x.x") }}
+    test:
+      imports:
+        - RAiDER
 
 about:
   home: https://github.com/dbekaert/RAiDER
