@@ -79,7 +79,7 @@ outputs:
 
   - name: raider
     build:
-      skip: true  # [py<38]
+      skip: true  # [py<38 or win]
     requirements:
       host:
         - python
