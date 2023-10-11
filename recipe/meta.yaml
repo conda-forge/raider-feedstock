@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/dbekaert/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256:
+  sha256: dfceef14bd94053c96903e5be669bd6b1eda1b2e570dbdeaf10ddceb63ea0143
   patches:
     - 604.diff  # ensure alaska.geojson.zip is being packaged
 
@@ -90,7 +90,7 @@ outputs:
         - python
       run:
         - python
-        - isce3 >=0.9.0
+        - isce3 >=0.15.0
         - {{ pin_subpackage('raider-base', max_pin="x.x.x") }}
     test:
       imports:
