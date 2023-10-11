@@ -1,5 +1,5 @@
 {% set name = "RAiDER" %}
-{% set version = "0.4.3" %}
+{% set version = "0.4.5" %}
 
 package:
   # For multiple outputs, I'm mimicking: https://github.com/conda-forge/matplotlib-feedstock/blob/main/recipe/meta.yaml
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/dbekaert/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 9e9a38c6ad06a1d086801cbf0e608104853aa70adbfa07e443739b3192e2c43e
+  sha256:
   patches:
     - 604.diff  # ensure alaska.geojson.zip is being packaged
 
