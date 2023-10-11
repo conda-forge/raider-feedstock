@@ -1,5 +1,5 @@
 {% set name = "RAiDER" %}
-{% set version = "0.4.2" %}
+{% set version = "0.4.3" %}
 
 package:
   # For multiple outputs, I'm mimicking: https://github.com/conda-forge/matplotlib-feedstock/blob/main/recipe/meta.yaml
@@ -7,8 +7,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/dbekaert/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: a4da954770a295af2a8bf63499ae30a1277bfa60a182bfdbcdab47cae4d8df4c
+  url: https://github.com/dbekaert/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: 9e9a38c6ad06a1d086801cbf0e608104853aa70adbfa07e443739b3192e2c43e
 
 build:
   number: 0
@@ -34,6 +34,7 @@ outputs:
         - cython
       run:
         - python
+        - asf_search
         - boto3
         - cdsapi
         - cfgrib
@@ -42,6 +43,9 @@ outputs:
         - ecmwf-api-client
         - h5py
         - herbie-data
+        - h5netcdf
+        - hyp3lib
+        - jsonschema==3.2.0
         - lxml
         - matplotlib-base
         - netcdf4
@@ -55,11 +59,9 @@ outputs:
         - requests
         - rioxarray
         - s3fs
-        - scipy
-        - sentineleof
+        - scipy>1.10.0
         - shapely
         - tqdm
-        - xarray
     test:
       imports:
         - RAiDER
