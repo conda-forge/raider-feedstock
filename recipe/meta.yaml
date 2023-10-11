@@ -60,6 +60,7 @@ outputs:
         - rioxarray
         - s3fs
         - scipy>1.10.0
+        - sentineleof
         - shapely
         - tqdm
     test:
