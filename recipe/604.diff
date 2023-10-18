@@ -1,0 +1,27 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index f01a75a1..1db17525 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -55,11 +55,9 @@ include-package-data = true
+ zip-safe = false
+ 
+ [tool.setuptools.packages.find]
++namespaces = true
+ where = ["tools"]
+ 
+-[tool.setuptools.package-data]
+-"*" = ["*.yml", "*.yaml"]
+-
+ [tool.isort]
+ known_first_party = "RAiDER"
+ multi_line_output = 5
+diff --git a/setup.py b/setup.py
+index 9f163fc7..a8a76bc1 100755
+--- a/setup.py
++++ b/setup.py
+@@ -44,5 +44,4 @@
+ setup(
+     ext_modules=cython_extensions + pybind_extensions,
+     cmdclass={"build_ext": build_ext},
+-    package_data={'tools': ['RAiDER/models/*.zip']}
+ )
