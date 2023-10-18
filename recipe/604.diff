@@ -1,20 +1,16 @@
 diff --git a/pyproject.toml b/pyproject.toml
-index f01a75a1..1db17525 100644
+index f01a75a1..d5815cdb 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
-@@ -55,11 +55,9 @@ include-package-data = true
- zip-safe = false
- 
- [tool.setuptools.packages.find]
-+namespaces = true
+@@ -58,7 +58,7 @@ zip-safe = false
  where = ["tools"]
  
--[tool.setuptools.package-data]
+ [tool.setuptools.package-data]
 -"*" = ["*.yml", "*.yaml"]
--
++"*" = ["*.yml", "*.yaml", "*.zip"]
+ 
  [tool.isort]
  known_first_party = "RAiDER"
- multi_line_output = 5
 diff --git a/setup.py b/setup.py
 index 9f163fc7..a8a76bc1 100755
 --- a/setup.py
