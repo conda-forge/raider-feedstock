@@ -20,7 +20,7 @@ outputs:
   - name: raider-base
     script: build_base.sh
     build:
-      skip: true  # [py<38 or win]
+      skip: true  # [py<39 or win]
     requirements:
       build:
         - {{ compiler('c') }}
@@ -85,7 +85,7 @@ outputs:
 
   - name: raider
     build:
-      skip: true  # [py<38 or win]
+      skip: true  # [py<39 or win]
     requirements:
       host:
         - python
