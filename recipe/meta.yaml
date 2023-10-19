@@ -1,5 +1,5 @@
 {% set name = "RAiDER" %}
-{% set version = "0.4.2" %}
+{% set version = "0.4.5" %}
 
 package:
   # For multiple outputs, I'm mimicking: https://github.com/conda-forge/matplotlib-feedstock/blob/main/recipe/meta.yaml
@@ -7,8 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/dbekaert/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: a4da954770a295af2a8bf63499ae30a1277bfa60a182bfdbcdab47cae4d8df4c
+  url: https://github.com/dbekaert/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: dfceef14bd94053c96903e5be669bd6b1eda1b2e570dbdeaf10ddceb63ea0143
+  patches:
+    - 604.diff  # ensure alaska.geojson.zip is being packaged; fixed in v0.4.6
+    - 606.diff  # fix isce3 import to keep it optional; fixed in v0.4.6
 
 build:
   number: 0
@@ -17,7 +20,7 @@ outputs:
   - name: raider-base
     script: build_base.sh
     build:
-      skip: true  # [py<38 or win]
+      skip: true  # [py<39 or win]
     requirements:
       build:
         - {{ compiler('c') }}
@@ -34,6 +37,7 @@ outputs:
         - cython
       run:
         - python
+        - asf_search
         - boto3
         - cdsapi
         - cfgrib
@@ -42,6 +46,9 @@ outputs:
         - ecmwf-api-client
         - h5py
         - herbie-data
+        - h5netcdf
+        - hyp3lib
+        - jsonschema==3.2.0
         - lxml
         - matplotlib-base
         - netcdf4
@@ -55,11 +62,10 @@ outputs:
         - requests
         - rioxarray
         - s3fs
-        - scipy
+        - scipy>1.10.0
         - sentineleof
         - shapely
         - tqdm
-        - xarray
     test:
       imports:
         - RAiDER
@@ -79,13 +85,13 @@ outputs:
 
   - name: raider
     build:
-      skip: true  # [py<38 or win]
+      skip: true  # [py<39 or win]
     requirements:
       host:
         - python
       run:
         - python
-        - isce3 >=0.9.0
+        - isce3 >=0.15.0
         - {{ pin_subpackage('raider-base', max_pin="x.x.x") }}
     test:
       imports:
