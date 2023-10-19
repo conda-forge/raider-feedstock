@@ -10,7 +10,8 @@ source:
   url: https://github.com/dbekaert/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: dfceef14bd94053c96903e5be669bd6b1eda1b2e570dbdeaf10ddceb63ea0143
   patches:
-    - 604.diff  # ensure alaska.geojson.zip is being packaged
+    - 604.diff  # ensure alaska.geojson.zip is being packaged; fixed in v0.4.6
+    - 606.diff  # fix isce3 import to keep it optional; fixed in v0.4.6
 
 build:
   number: 0
