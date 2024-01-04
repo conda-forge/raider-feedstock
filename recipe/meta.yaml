@@ -14,7 +14,7 @@ source:
     - 606.diff  # fix isce3 import to keep it optional; fixed in v0.4.6
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: raider-base
