@@ -1,5 +1,5 @@
 {% set name = "RAiDER" %}
-{% set version = "0.4.5" %}
+{% set version = "0.5.1" %}
 
 package:
   # For multiple outputs, I'm mimicking: https://github.com/conda-forge/matplotlib-feedstock/blob/main/recipe/meta.yaml
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/dbekaert/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: dfceef14bd94053c96903e5be669bd6b1eda1b2e570dbdeaf10ddceb63ea0143
+  sha256: f23e13b5e7d17c02e0248d6c14b0bc025310b8f70168237199c83c85c42c5685
   patches:
     - 604.diff  # ensure alaska.geojson.zip is being packaged; fixed in v0.4.6
     - 606.diff  # fix isce3 import to keep it optional; fixed in v0.4.6
@@ -29,6 +29,7 @@ outputs:
         - numpy                                  # [build_platform != target_platform]
         - pybind11                               # [build_platform != target_platform]
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - {{ compiler('cxx') }}
         - cmake
       host:
