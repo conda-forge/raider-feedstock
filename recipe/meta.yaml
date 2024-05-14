@@ -84,7 +84,7 @@ outputs:
         - raiderDownloadGNSS.py -h
         - downloadGNSS.py -h
         - generateGACOSVRT.py
-        - raiderStats.py -h
+        # - raiderStats.py -h
 
   - name: raider
     build:
