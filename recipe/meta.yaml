@@ -9,9 +9,6 @@ package:
 source:
   url: https://github.com/dbekaert/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: f23e13b5e7d17c02e0248d6c14b0bc025310b8f70168237199c83c85c42c5685
-  patches:
-    - 604.diff  # ensure alaska.geojson.zip is being packaged; fixed in v0.4.6
-    - 606.diff  # fix isce3 import to keep it optional; fixed in v0.4.6
 
 build:
   number: 0
