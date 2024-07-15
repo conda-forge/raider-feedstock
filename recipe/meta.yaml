@@ -44,9 +44,11 @@ outputs:
         - boto3
         - cdsapi
         - cfgrib
+        - cython
         - dask
         - dem_stitcher >=2.3.1
         - ecmwf-api-client
+        - geopandas
         - h5py
         - herbie-data
         - h5netcdf
@@ -58,6 +60,7 @@ outputs:
         - {{ pin_compatible('numpy') }}
         - pandas
         - progressbar
+        - pybind11>=2.5.0
         - pydap >3.2.2
         - pyproj >=2.2.0
         - pyyaml
@@ -69,6 +72,7 @@ outputs:
         - sentineleof
         - shapely
         - tqdm
+        - xarray
     test:
       imports:
         - RAiDER
