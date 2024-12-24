@@ -57,6 +57,7 @@ outputs:
         - lxml
         - matplotlib-base
         - netcdf4
+        - numpy <2.0dev0
         - pandas
         - progressbar
         - pybind11>=2.5.0
