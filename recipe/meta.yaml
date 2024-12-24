@@ -11,7 +11,7 @@ source:
   sha256: 74d303f26ddf664f2fd7949c744fca96ef088600e53fdd340a77ecc00fb21b7c
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: raider-base
@@ -57,11 +57,12 @@ outputs:
         - lxml
         - matplotlib-base
         - netcdf4
-        - {{ pin_compatible('numpy') }}
+        - numpy <2.0dev0
         - pandas
         - progressbar
         - pybind11>=2.5.0
         - pydap >3.2.2
+        - beautifulsoup4  # Missing pydap dep (pydap-server not available for all python versions): See: https://github.com/conda-forge/pydap-feedstock/issues/28
         - pyproj >=2.2.0
         - pyyaml
         - rasterio >=1.3.0
