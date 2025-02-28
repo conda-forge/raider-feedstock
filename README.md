@@ -255,6 +255,3 @@ Feedstock Maintainers
 * [@jhkennedy](https://github.com/jhkennedy/)
 * [@jlmaurer](https://github.com/jlmaurer/)
 
-
-<!-- dummy commit to enable rerendering -->
-
