@@ -1,5 +1,5 @@
 {% set name = "RAiDER" %}
-{% set version = "0.5.3" %}
+{% set version = "0.5.5" %}
 
 package:
   # For multiple outputs, I'm mimicking: https://github.com/conda-forge/matplotlib-feedstock/blob/main/recipe/meta.yaml
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://github.com/dbekaert/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 74d303f26ddf664f2fd7949c744fca96ef088600e53fdd340a77ecc00fb21b7c
+  sha256: 09dd484781396a99f8d9a71f3f6ae2d05d60486852d460a24efc1bb7568a3dc9
 
 build:
-  number: 1
+  number: 0
 
 outputs:
   - name: raider-base
@@ -50,17 +50,16 @@ outputs:
         - ecmwf-api-client
         - geopandas
         - h5py
-        - herbie-data
+        - herbie-data <2025.2.1
         - h5netcdf
-        - hyp3lib
-        - jsonschema==3.2.0
+        - jsonschema ==3.2.0
         - lxml
         - matplotlib-base
         - netcdf4
         - numpy <2.0dev0
         - pandas
         - progressbar
-        - pybind11>=2.5.0
+        - pybind11 >=2.5.0
         - pydap >3.2.2
         - beautifulsoup4  # Missing pydap dep (pydap-server not available for all python versions): See: https://github.com/conda-forge/pydap-feedstock/issues/28
         - pyproj >=2.2.0
@@ -69,7 +68,8 @@ outputs:
         - requests
         - rioxarray
         - s3fs
-        - scipy>1.10.0
+        - s1_orbits
+        - scipy >1.10.0
         - sentineleof
         - shapely
         - tqdm
