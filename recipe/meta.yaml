@@ -50,17 +50,16 @@ outputs:
         - ecmwf-api-client
         - geopandas
         - h5py
-        - herbie-data
+        - herbie-data <2025.2.1
         - h5netcdf
-        - hyp3lib
-        - jsonschema==3.2.0
+        - jsonschema ==3.2.0
         - lxml
         - matplotlib-base
         - netcdf4
         - numpy <2.0dev0
         - pandas
         - progressbar
-        - pybind11>=2.5.0
+        - pybind11 >=2.5.0
         - pydap >3.2.2
         - beautifulsoup4  # Missing pydap dep (pydap-server not available for all python versions): See: https://github.com/conda-forge/pydap-feedstock/issues/28
         - pyproj >=2.2.0
@@ -69,7 +68,8 @@ outputs:
         - requests
         - rioxarray
         - s3fs
-        - scipy>1.10.0
+        - s1_orbits
+        - scipy >1.10.0
         - sentineleof
         - shapely
         - tqdm
