@@ -1,5 +1,5 @@
 {% set name = "RAiDER" %}
-{% set version = "0.5.5" %}
+{% set version = "0.6.0" %}
 
 package:
   # For multiple outputs, I'm mimicking: https://github.com/conda-forge/matplotlib-feedstock/blob/main/recipe/meta.yaml
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/dbekaert/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 09dd484781396a99f8d9a71f3f6ae2d05d60486852d460a24efc1bb7568a3dc9
+  sha256: f5aae92ef25e2853c7c88ef8d1ffd0a5740b2db0da84f541ab075e9fd624a9c0
 
 build:
   number: 0
