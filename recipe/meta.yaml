@@ -11,7 +11,7 @@ source:
   sha256: f5aae92ef25e2853c7c88ef8d1ffd0a5740b2db0da84f541ab075e9fd624a9c0
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: raider-base
